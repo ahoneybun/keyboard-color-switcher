@@ -3,7 +3,7 @@ import gi
 import sys
 
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, Gio
 
 class MainWindow(Gtk.Window):
 
@@ -15,6 +15,14 @@ class MainWindow(Gtk.Window):
         self.set_titlebar(self.headerbar)
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
+
+        # About window
+        self.aboutbutton = Gtk.Button()
+        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
+        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
+        self.aboutbutton.add(image)
+        self.headerbar.pack_end(self.aboutbutton)
+        self.aboutbutton.connect("clicked", self.on_button_clicked)
 
         # Button Define
         self.leftbutton = Gtk.ColorButton()
@@ -91,7 +99,17 @@ class MainWindow(Gtk.Window):
                 print("Failed to set color")
 
     def on_button_clicked(self, widget):
-        print(widget)
+        win = AboutWindow()
+        win.show_all()
+        
+class AboutWindow(Gtk.Window):
+
+    def __init__(self):
+        Gtk.Window.__init__(self, title="About")
+        self.set_border_width(100)
+
+        self.aboutlabel = Gtk.Label("Hello")
+        self.add(self.aboutlabel)
 
 win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
