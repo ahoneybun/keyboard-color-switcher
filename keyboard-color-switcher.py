@@ -17,12 +17,12 @@ class MainWindow(Gtk.Window):
         self.headerbar.props.title = "Keyboard Color Switcher"
 
         # About window
-        self.aboutbutton = Gtk.Button()
-        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
-        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
-        self.aboutbutton.add(image)
-        self.headerbar.pack_end(self.aboutbutton)
-        self.aboutbutton.connect("clicked", self.on_button_clicked)
+#        self.aboutbutton = Gtk.Button()
+#        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
+#        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
+#        self.aboutbutton.add(image)
+#        self.headerbar.pack_end(self.aboutbutton)
+#        self.aboutbutton.connect("clicked", self.on_button_clicked)
 
         # Button Define
         self.leftbutton = Gtk.ColorButton()
@@ -102,14 +102,16 @@ class MainWindow(Gtk.Window):
         win = AboutWindow()
         win.show_all()
         
-class AboutWindow(Gtk.Window):
+#class AboutWindow(Gtk.AboutDialog):
 
-    def __init__(self):
-        Gtk.Window.__init__(self, title="About")
-        self.set_border_width(100)
+#    def __init__(self):
+#        Gtk.Window.__init__(self, title="About")
+#        self.set_border_width(30)  
 
-        self.aboutlabel = Gtk.Label("Hello")
-        self.add(self.aboutlabel)
+#        self.aboutdialog = Gtk.AboutDialog()
+
+        # Credits
+#        authors = ["David Jordan, Cassidy James Blaede, Aaron Honeycutt"]
 
 win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
