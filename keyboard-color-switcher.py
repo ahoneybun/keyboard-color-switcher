@@ -8,8 +8,13 @@ from gi.repository import Gtk
 class MainWindow(Gtk.Window):
 
     def __init__(self):
-        Gtk.Window.__init__(self, title="Keyboard Color Switcher")
+        Gtk.Window.__init__(self)
         self.set_border_width(100)
+
+        self.headerbar = Gtk.HeaderBar()
+        self.set_titlebar(self.headerbar)
+        self.headerbar.set_show_close_button(True)
+        self.headerbar.props.title = "Keyboard Color Switcher"
 
         # Button Define
         self.leftbutton = Gtk.ColorButton()
