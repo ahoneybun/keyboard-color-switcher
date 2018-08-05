@@ -37,8 +37,6 @@ class MainWindow(Gtk.Window):
 
         self.grid = Gtk.Grid()
         self.grid.set_column_spacing(6)
-        self.grid.set_halign(Gtk.Align.CENTER)
-        self.grid.set_valign(Gtk.Align.CENTER)
 
         # Connect Signal handlers
         self.leftbutton.connect("clicked", self.on_button_clicked)
