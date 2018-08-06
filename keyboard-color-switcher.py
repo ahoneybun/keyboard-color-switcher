@@ -99,14 +99,14 @@ class MainWindow(Gtk.Window):
                 print("Failed to set color")
 
     def on_button_clicked(self, widget):
-        win = AboutWindow()
+#        win = AboutWindow()
         win.show_all()
-        
+
 #class AboutWindow(Gtk.AboutDialog):
 
 #    def __init__(self):
 #        Gtk.Window.__init__(self, title="About")
-#        self.set_border_width(30)  
+#        self.set_border_width(30)
 
 #        self.aboutdialog = Gtk.AboutDialog()
 
