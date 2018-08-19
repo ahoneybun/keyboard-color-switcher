@@ -12,17 +12,17 @@ class MainWindow(Gtk.Window):
         self.set_border_width(100)
 
         # HeaderBar Define
-        # self.headerbar = Gtk.HeaderBar()
-        # self.set_titlebar(self.headerbar)
-        # self.headerbar.set_show_close_button(True)
-        # self.headerbar.props.title = "Keyboard Color Switcher"
+        #self.headerbar = Gtk.HeaderBar()
+        #self.set_titlebar(self.headerbar)
+        #self.headerbar.set_show_close_button(True)
+        #self.headerbar.props.title = "Keyboard Color Switcher"
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.add(vbox)
 
-        self.stack = Gtk.Stack()
-        self.stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
-        self.stack.set_transition_duration(1000)
+        #self.stack = Gtk.Stack()
+        #self.stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+        #self.stack.set_transition_duration(1000)
 
         # Button Define
         self.leftbutton = Gtk.ColorButton()
@@ -68,10 +68,10 @@ class MainWindow(Gtk.Window):
 
         vbox.pack_start(self.grid, True, True, 0)
 
-        self.stack_switcher = Gtk.StackSwitcher()
-        self.stack_switcher.set_stack(self.stack)
-        vbox.pack_start(self.stack_switcher, True, True, 0)
-        vbox.pack_start(self.stack, True, True, 0)
+        #self.stack_switcher = Gtk.StackSwitcher()
+        #self.stack_switcher.set_stack(self.stack)
+        #vbox.pack_start(self.stack_switcher, True, True, 0)
+        #vbox.pack_start(self.stack, True, True, 0)
 
         # Color Grab
     def on_color_activated(self, widget, region):
