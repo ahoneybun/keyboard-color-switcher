@@ -17,7 +17,7 @@ class MainWindow(Gtk.Window):
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
 
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
         # Label Definement
