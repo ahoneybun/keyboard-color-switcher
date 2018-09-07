@@ -64,11 +64,6 @@ class MainWindow(Gtk.Window):
 
         vbox.pack_start(self.grid, True, True, 0)
 
-        #self.stack_switcher = Gtk.StackSwitcher()
-        #self.stack_switcher.set_stack(self.stack)
-        #vbox.pack_start(self.stack_switcher, True, True, 0)
-        #vbox.pack_start(self.stack, True, True, 0)
-
         # Color Grab
     def on_color_activated(self, widget, region):
         print(region)
