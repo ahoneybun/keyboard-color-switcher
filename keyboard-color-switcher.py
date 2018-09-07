@@ -20,6 +20,11 @@ class MainWindow(Gtk.Window):
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.add(vbox)
 
+        # Label Definement
+        self.aboutlabel = Gtk.Label()
+        self.aboutlabel.set_text("System76's tool for changing keyboard region colors")
+        #self.centerlabel.set_halign()
+
         # Button Definement
         self.leftbutton = Gtk.ColorButton()
         self.leftlabel = Gtk.Label("Left")
@@ -55,13 +60,14 @@ class MainWindow(Gtk.Window):
         self.rightbutton.connect("color-set", self.on_color_activated, "right")
 
         # Grid Setup
-        self.grid.attach(self.leftlabel, 0, 1, 1, 1)
-        self.grid.attach(self.leftbutton, 0, 0, 1, 1)
-        self.grid.attach(self.centerlabel, 1, 1, 1, 1)
-        self.grid.attach(self.centerbutton, 1, 0, 1, 1)
-        self.grid.attach(self.rightlabel, 2, 1, 1, 1)
-        self.grid.attach(self.rightbutton, 2, 0, 1, 1)
+        self.grid.attach(self.leftlabel, 0, 2, 1, 1)
+        self.grid.attach(self.leftbutton, 0, 1, 1, 1)
+        self.grid.attach(self.centerlabel, 1, 2, 1, 1)
+        self.grid.attach(self.centerbutton, 1, 1, 1, 1)
+        self.grid.attach(self.rightlabel, 2, 2, 1, 1)
+        self.grid.attach(self.rightbutton, 2, 1, 1, 1)
 
+        vbox.pack_start(self.aboutlabel, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
         # Color Grab
