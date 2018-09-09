@@ -23,6 +23,8 @@ class MainWindow(Gtk.Window):
         # Label Definement
         self.aboutlabel = Gtk.Label()
         self.aboutlabel.set_text("System76's tool for changing keyboard region colors")
+        self.aboutlabel2 = Gtk.Label()
+        self.aboutlabel2.set_text("supported models: oryp2-ess, oryp4, serw11")
         #self.centerlabel.set_halign()
 
         # Button Definement
@@ -68,6 +70,7 @@ class MainWindow(Gtk.Window):
         self.grid.attach(self.rightbutton, 2, 1, 1, 1)
 
         vbox.pack_start(self.aboutlabel, True, True, 0)
+        vbox.pack_start(self.aboutlabel2, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
         # Color Grab
