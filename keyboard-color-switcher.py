@@ -17,6 +17,12 @@ class MainWindow(Gtk.Window):
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
 
+        self.button = Gtk.Button()
+        icon = Gio.ThemedIcon(name="mail-send-receive-symbolic")
+        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
+        self.button.add(image)
+        self.headerbar.pack_end(self.button)
+
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
