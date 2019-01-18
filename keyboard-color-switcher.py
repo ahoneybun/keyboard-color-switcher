@@ -11,29 +11,30 @@ class MainWindow(Gtk.Window):
         Gtk.Window.__init__(self)
         self.set_border_width(100)
 
-        # HeaderBar Define
+        #### HeaderBar Define
         self.headerbar = Gtk.HeaderBar()
         self.set_titlebar(self.headerbar)
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
 
-        self.button = Gtk.Button()
-        icon = Gio.ThemedIcon(name="mail-send-receive-symbolic")
-        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
-        self.button.add(image)
-        self.headerbar.pack_end(self.button)
+         ### Hiding the About button until it's coded in.
+#        self.button = Gtk.Button()
+#        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
+#        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
+#        self.button.add(image)
+#        self.headerbar.pack_end(self.button)
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
-        # Label Definement
+        ### Label Definement
         self.aboutlabel = Gtk.Label()
         self.aboutlabel.set_text("System76's tool for changing keyboard region colors")
         self.aboutlabel2 = Gtk.Label()
         self.aboutlabel2.set_text("supported models: oryp2-ess, oryp4, serw11")
-        #self.centerlabel.set_halign()
+#        self.centerlabel.set_halign()
 
-        # Button Definement
+        ### Button Definement
         self.leftbutton = Gtk.ColorButton()
         self.leftlabel = Gtk.Label("Left")
         self.leftbutton.set_halign(Gtk.Align.CENTER)
@@ -57,7 +58,7 @@ class MainWindow(Gtk.Window):
         self.grid.set_halign(Gtk.Align.CENTER)
         self.grid.set_valign(Gtk.Align.CENTER)
 
-        # Connect Signal handlers
+        ### Connect Signal handlers
         self.leftbutton.connect("clicked", self.on_button_clicked)
         self.leftbutton.connect("color-set", self.on_color_activated, "left")
 
@@ -67,7 +68,7 @@ class MainWindow(Gtk.Window):
         self.rightbutton.connect("clicked", self.on_button_clicked)
         self.rightbutton.connect("color-set", self.on_color_activated, "right")
 
-        # Grid Setup
+        ### Grid Setup
         self.grid.attach(self.leftlabel, 0, 2, 1, 1)
         self.grid.attach(self.leftbutton, 0, 1, 1, 1)
         self.grid.attach(self.centerlabel, 1, 2, 1, 1)
@@ -79,7 +80,7 @@ class MainWindow(Gtk.Window):
         vbox.pack_start(self.aboutlabel2, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
-        # Color Grab
+        ### Color Grab
     def on_color_activated(self, widget, region):
         print(region)
         color = widget.get_rgba()
