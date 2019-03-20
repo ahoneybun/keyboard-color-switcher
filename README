@@ -6,3 +6,7 @@ Wishlist:
 
 [ ] Save color settings when closing and opening.
 [ ] Presets of all 3 regions.
+
+How to use it:
+
+sudo python3 keyboard-color-switcher.py
