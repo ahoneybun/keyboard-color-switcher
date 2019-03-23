@@ -19,7 +19,7 @@ class MainWindow(Gtk.Window):
 
          ### Hiding the About button until it's coded in.
 #        self.button = Gtk.Button()
-#        icon = Gio.ThemedIcon(name="dialog-information-symbolic")
+#        icon = Gio.ThemedIcon(name="open-menu-symbolic")
 #        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
 #        self.button.add(image)
 #        self.headerbar.pack_end(self.button)
