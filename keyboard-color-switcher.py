@@ -18,20 +18,20 @@ class MainWindow(Gtk.Window):
         self.headerbar.props.title = "Keyboard Color Switcher"
 
          ### Hiding the About button until it's coded in.
-#        self.button = Gtk.Button()
-#        icon = Gio.ThemedIcon(name="open-menu-symbolic")
-#        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
-#        self.button.add(image)
-#        self.headerbar.pack_end(self.button)
+        self.button = Gtk.Button()
+        icon = Gio.ThemedIcon(name="open-menu-symbolic")
+        image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
+        self.button.add(image)
+        self.headerbar.pack_end(self.button)
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
         ### Label Definement
         self.aboutlabel = Gtk.Label()
-        self.aboutlabel.set_text("System76's tool for changing keyboard region colors")
-        self.aboutlabel2 = Gtk.Label()
-        self.aboutlabel2.set_text("supported models: oryp2-ess, oryp4, oryp5, serw11")
+        self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
+        self.aboutcenterlabel = Gtk.Label()
+        self.aboutcenterlabel.set_text("supported models: oryp2-ess, oryp4, oryp5, serw11")
 #        self.centerlabel.set_halign()
 
         ### Button Definement
@@ -77,7 +77,7 @@ class MainWindow(Gtk.Window):
         self.grid.attach(self.rightbutton, 2, 1, 1, 1)
 
         vbox.pack_start(self.aboutlabel, True, True, 0)
-        vbox.pack_start(self.aboutlabel2, True, True, 0)
+        vbox.pack_start(self.aboutcenterlabel, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
         ### Color Grab
@@ -113,6 +113,16 @@ class MainWindow(Gtk.Window):
 
     def on_button_clicked(self, widget):
         win.show_all()
+
+class AboutWindow(Gtk.AboutDialog):
+
+    def __init__(self):
+        Gtk.AboutDialog.__init__(self)
+        self.set_border_width(100)
+
+        self.aboutdialog = Gtk.AboutDialog()
+        self.aboutdialog.set_destroy_with_parent(True)
+        self.aboutdialog.set_version("0.2")
 
 win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
