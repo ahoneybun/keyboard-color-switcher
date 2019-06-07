@@ -17,7 +17,7 @@ class MainWindow(Gtk.Window):
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
 
-         ### Hiding the About button until it's coded in.
+        ### Hiding the About button until it's coded in.
         self.button = Gtk.Button()
         icon = Gio.ThemedIcon(name="open-menu-symbolic")
         image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
@@ -32,7 +32,7 @@ class MainWindow(Gtk.Window):
         self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
         self.aboutcenterlabel = Gtk.Label()
         self.aboutcenterlabel.set_text("supported models: oryp2-ess, oryp4, oryp5, serw11")
-#        self.centerlabel.set_halign()
+#       self.centerlabel.set_halign()
 
         ### Button Definement
         self.leftbutton = Gtk.ColorButton()
