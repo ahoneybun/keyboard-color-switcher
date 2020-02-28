@@ -33,7 +33,6 @@ class MainWindow(Gtk.Window):
         self.aboutlabel = Gtk.Label()
         self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
         self.aboutcenterlabel = Gtk.Label()
-        self.aboutcenterlabel.set_text("supported models: oryp2-ess, oryp4, oryp5, serw11")
 #       self.centerlabel.set_halign()
 
         ### Button Definement
