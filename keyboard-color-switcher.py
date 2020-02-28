@@ -38,19 +38,19 @@ class MainWindow(Gtk.Window):
 
         ### Button Definement
         self.leftbutton = Gtk.ColorButton()
-        self.leftlabel = Gtk.Label("Left")
+        self.leftlabel = Gtk.Label.new("Left")
         self.leftbutton.set_halign(Gtk.Align.CENTER)
         self.leftbutton.set_valign(Gtk.Align.CENTER)
         self.leftbutton.set_size_request(75, 50)
 
         self.centerbutton = Gtk.ColorButton()
-        self.centerlabel = Gtk.Label("Center")
+        self.centerlabel = Gtk.Label.new("Center")
         self.centerbutton.set_halign(Gtk.Align.CENTER)
         self.centerbutton.set_valign(Gtk.Align.CENTER)
         self.centerbutton.set_size_request(75, 50)
 
         self.rightbutton = Gtk.ColorButton()
-        self.rightlabel = Gtk.Label("Right")
+        self.rightlabel = Gtk.Label.new("Right")
         self.rightbutton.set_halign(Gtk.Align.CENTER)
         self.rightbutton.set_valign(Gtk.Align.CENTER)
         self.rightbutton.set_size_request(75, 50)
