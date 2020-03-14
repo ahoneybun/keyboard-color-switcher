@@ -20,11 +20,12 @@ class MainWindow(Gtk.Window):
         self.headerbar.props.title = "Keyboard Color Switcher"
 
         ### Hiding the About button until it's coded in.
-        self.button = Gtk.Button()
+        self.aboutbutton = Gtk.Button()
         icon = Gio.ThemedIcon(name="open-menu-symbolic")
         image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
-        self.button.add(image)
-        self.headerbar.pack_end(self.button)
+        self.aboutbutton.add(image)
+        self.headerbar.pack_end(self.aboutbutton)
+        #self.aboutbutton.connect("clicked", self.aboutwindow)
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
@@ -115,15 +116,27 @@ class MainWindow(Gtk.Window):
     def on_button_clicked(self, widget):
         win.show_all()
 
-class AboutWindow(Gtk.AboutDialog):
+# class AboutWindow(Gtk.AboutDialog):
+
+#     def aboutwindow(self):
+#         Gtk.AboutDialog.aboutwindow(self)
+#         self.set_border_width(100)
+
+#         self.aboutdialog = Gtk.AboutDialog()
+#         self.aboutdialog.set_destroy_with_parent(True)
+#         self.aboutdialog.set_version("0.2")
+
+#         self.aboutdialog.show()
+
+class AboutDialogWindow(Gtk.AboutWindow):
 
     def __init__(self):
-        Gtk.AboutDialog.__init__(self)
-        self.set_border_width(100)
+        Gtk.Window.__init__(self, title="About Keyboard Color Switcher")
 
-        self.aboutdialog = Gtk.AboutDialog()
-        self.aboutdialog.set_destroy_with_parent(True)
-        self.aboutdialog.set_version("0.2")
+        box = Gtk.Box(spacing=6)
+        self.add(box)
+
+        
 
 win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
