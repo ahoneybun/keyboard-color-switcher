@@ -128,13 +128,13 @@ class MainWindow(Gtk.Window):
 
 #         self.aboutdialog.show()
 
-class AboutDialogWindow(Gtk.AboutWindow):
+#class AboutDialogWindow(Gtk.AboutWindow):
 
-    def __init__(self):
-        Gtk.Window.__init__(self, title="About Keyboard Color Switcher")
+#    def __init__(self):
+#        Gtk.Window.__init__(self, title="About Keyboard Color Switcher")
 
-        box = Gtk.Box(spacing=6)
-        self.add(box)
+#        box = Gtk.Box(spacing=6)
+#        self.add(box)
 
         
 
