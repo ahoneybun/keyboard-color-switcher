@@ -19,7 +19,6 @@ class MainWindow(Gtk.Window):
         self.headerbar.set_show_close_button(True)
         self.headerbar.props.title = "Keyboard Color Switcher"
 
-        ### Hiding the About button until it's coded in.
         self.aboutbutton = Gtk.Button()
         icon = Gio.ThemedIcon(name="open-menu-symbolic")
         image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
@@ -54,6 +53,7 @@ class MainWindow(Gtk.Window):
         self.rightbutton.set_valign(Gtk.Align.CENTER)
         self.rightbutton.set_size_request(75, 50)
 
+        ### Grid Setup
         self.grid = Gtk.Grid()
         self.grid.set_column_spacing(6)
         self.grid.set_halign(Gtk.Align.CENTER)
@@ -69,7 +69,7 @@ class MainWindow(Gtk.Window):
         self.rightbutton.connect("clicked", self.on_button_clicked)
         self.rightbutton.connect("color-set", self.on_color_activated, "right")
 
-        ### Grid Setup
+        ### Grid Setup/2
         self.grid.attach(self.leftlabel, 0, 2, 1, 1)
         self.grid.attach(self.leftbutton, 0, 1, 1, 1)
         self.grid.attach(self.centerlabel, 1, 2, 1, 1)
