@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
 # Imports
+import os
 import gi
 import sys
+
+if os.geteuid() != 0:
+    exit("You need to have root privileges to run this.")
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
@@ -24,7 +28,7 @@ class MainWindow(Gtk.Window):
         image = Gtk.Image.new_from_gicon(icon, Gtk.IconSize.BUTTON)
         self.aboutbutton.add(image)
         self.headerbar.pack_end(self.aboutbutton)
-        
+
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
@@ -34,12 +38,24 @@ class MainWindow(Gtk.Window):
         self.aboutcenterlabel = Gtk.Label()
 #       self.centerlabel.set_halign()
 
-        ### Button Definement
-        self.leftbutton = Gtk.ColorButton()
-        self.leftlabel = Gtk.Label.new("Left")
-        self.leftbutton.set_halign(Gtk.Align.CENTER)
-        self.leftbutton.set_valign(Gtk.Align.CENTER)
-        self.leftbutton.set_size_request(75, 50)
+        self.ledPath = "/"+ os.path.join('sys', 'class', 'leds', 'system76_acpi::kbd_backlight')
+        if os.path.exists(self.ledPath) == False:
+           self.ledPath = "/" + os.path.join('sys', 'class', 'leds', 'system76::kbd_backlight')
+
+        # Detect if single color or multi color regions
+        self.colors = False
+        self.colorCenter = "/color"
+        if os.path.exists(os.path.join(self.ledPath, 'color_left')):
+           self.colors = True
+           self.colorCenter = "/color_center"
+
+        if self.colors == True:
+           ### Button Definement
+           self.leftbutton = Gtk.ColorButton()
+           self.leftlabel = Gtk.Label.new("Left")
+           self.leftbutton.set_halign(Gtk.Align.CENTER)
+           self.leftbutton.set_valign(Gtk.Align.CENTER)
+           self.leftbutton.set_size_request(75, 50)
 
         self.centerbutton = Gtk.ColorButton()
         self.centerlabel = Gtk.Label.new("Center")
@@ -47,11 +63,12 @@ class MainWindow(Gtk.Window):
         self.centerbutton.set_valign(Gtk.Align.CENTER)
         self.centerbutton.set_size_request(75, 50)
 
-        self.rightbutton = Gtk.ColorButton()
-        self.rightlabel = Gtk.Label.new("Right")
-        self.rightbutton.set_halign(Gtk.Align.CENTER)
-        self.rightbutton.set_valign(Gtk.Align.CENTER)
-        self.rightbutton.set_size_request(75, 50)
+        if self.colors == True:
+           self.rightbutton = Gtk.ColorButton()
+           self.rightlabel = Gtk.Label.new("Right")
+           self.rightbutton.set_halign(Gtk.Align.CENTER)
+           self.rightbutton.set_valign(Gtk.Align.CENTER)
+           self.rightbutton.set_size_request(75, 50)
 
         ### Grid Setup
         self.grid = Gtk.Grid()
@@ -60,22 +77,25 @@ class MainWindow(Gtk.Window):
         self.grid.set_valign(Gtk.Align.CENTER)
 
         ### Connect Signal handlers
-        self.leftbutton.connect("clicked", self.on_button_clicked)
-        self.leftbutton.connect("color-set", self.on_color_activated, "left")
+        if self.colors == True:
+           self.leftbutton.connect("clicked", self.on_button_clicked)
+           self.leftbutton.connect("color-set", self.on_color_activated, "left")
+           self.rightbutton.connect("clicked", self.on_button_clicked)
+           self.rightbutton.connect("color-set", self.on_color_activated, "right")
 
         self.centerbutton.connect("clicked", self.on_button_clicked)
         self.centerbutton.connect("color-set", self.on_color_activated, "center")
 
-        self.rightbutton.connect("clicked", self.on_button_clicked)
-        self.rightbutton.connect("color-set", self.on_color_activated, "right")
 
         ### Grid Setup/2
-        self.grid.attach(self.leftlabel, 0, 2, 1, 1)
-        self.grid.attach(self.leftbutton, 0, 1, 1, 1)
+        if self.colors == True:
+           self.grid.attach(self.leftlabel, 0, 2, 1, 1)
+           self.grid.attach(self.leftbutton, 0, 1, 1, 1)
+           self.grid.attach(self.rightlabel, 2, 2, 1, 1)
+           self.grid.attach(self.rightbutton, 2, 1, 1, 1)
+
         self.grid.attach(self.centerlabel, 1, 2, 1, 1)
         self.grid.attach(self.centerbutton, 1, 1, 1, 1)
-        self.grid.attach(self.rightlabel, 2, 2, 1, 1)
-        self.grid.attach(self.rightbutton, 2, 1, 1, 1)
 
         vbox.pack_start(self.aboutlabel, True, True, 0)
         vbox.pack_start(self.aboutcenterlabel, True, True, 0)
@@ -93,21 +113,21 @@ class MainWindow(Gtk.Window):
 
         if region == "left":
             try:
-                with open('/sys/class/leds/system76::kbd_backlight/color_left', 'w') as f_left:
+                with open(self.ledPath + '/color_left', 'w') as f_left:
                     f_left.write(color_string)
             except:
                 print("Failed to set color")
 
         if region == "center":
             try:
-                with open('/sys/class/leds/system76::kbd_backlight/color_center', 'w') as f_center:
+                with open(self.ledPath + self.colorCenter, 'w') as f_center:
                     f_center.write(color_string)
             except:
                 print("Failed to set color")
 
         if region == "right":
             try:
-                with open('/sys/class/leds/system76::kbd_backlight/color_right', 'w') as f_right:
+                with open(self.ledPath + '/color_right', 'w') as f_right:
                     f_right.write(color_string)
             except:
                 print("Failed to set color")
