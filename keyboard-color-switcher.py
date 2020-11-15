@@ -101,13 +101,13 @@ class MainWindow(Gtk.Window):
             except:
                 print("Failed to set color")
 
-                config.read('lights.ini')
+                config.read('colors.ini')
                 config.add_section('main')
-                config.set('main', 'left', 'colorleft')
+                config.set('simple', 'left', 'color_left')
 
-                with open('light.ini', 'w') as f:
+                with open('colors.ini', 'w') as f:
                     config.write(f)
-
+                
         if region == "center":
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_center', 'w') as f_center:
