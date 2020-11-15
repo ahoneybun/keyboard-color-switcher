@@ -3,12 +3,18 @@
 # Imports
 import gi
 import sys
+import io
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 
 from configparser import ConfigParser
 config = ConfigParser()
+
+#with open('colors.ini', 'w') as f:
+#    colorleft = f.read()
+#config = ConfigParser.RawConfigParser()
+#config.readfp(io.BytesIO(colorleft))
 
 class MainWindow(Gtk.Window):
 
@@ -98,15 +104,15 @@ class MainWindow(Gtk.Window):
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_left', 'w') as f_left:
                     f_left.write(color_string)
-            except:
-                print("Failed to set color")
 
                 config.read('colors.ini')
                 config.add_section('simple')
-                config.set('simple', 'left', 'color_left')
+                config.set('simple', 'left', 'colorleft')
 
                 with open('colors.ini', 'w') as f:
                     config.write(f)
+            except:
+                print("Failed to set color")
                 
         if region == "center":
             try:
