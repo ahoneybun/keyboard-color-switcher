@@ -118,6 +118,13 @@ class MainWindow(Gtk.Window):
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_center', 'w') as f_center:
                     f_center.write(color_string)
+
+                config.read('colors.ini')
+                config.add_section('simple')
+                config.set('simple', 'left', 'colorcenter')
+
+                with open('colors.ini', 'w') as f:
+                    config.write(f)
             except:
                 print("Failed to set color")
 
@@ -125,6 +132,14 @@ class MainWindow(Gtk.Window):
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_right', 'w') as f_right:
                     f_right.write(color_string)
+                    
+                config.read('colors.ini')
+                config.add_section('simple')
+                config.set('simple', 'left', 'colorright')
+
+                with open('colors.ini', 'w') as f:
+                    config.write(f)
+
             except:
                 print("Failed to set color")
 
