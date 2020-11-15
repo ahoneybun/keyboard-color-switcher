@@ -102,7 +102,7 @@ class MainWindow(Gtk.Window):
                 print("Failed to set color")
 
                 config.read('colors.ini')
-                config.add_section('main')
+                config.add_section('simple')
                 config.set('simple', 'left', 'color_left')
 
                 with open('colors.ini', 'w') as f:
