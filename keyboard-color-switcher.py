@@ -7,6 +7,9 @@ import sys
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 
+from configparser import ConfigParser
+config = ConfigParser()
+
 class MainWindow(Gtk.Window):
 
     def __init__(self):
@@ -97,6 +100,13 @@ class MainWindow(Gtk.Window):
                     f_left.write(color_string)
             except:
                 print("Failed to set color")
+
+                config.read('lights.ini')
+                config.add_section('main')
+                config.set('main', 'left', 'colorleft')
+
+                with open('light.ini', 'w') as f:
+                    config.write(f)
 
         if region == "center":
             try:
