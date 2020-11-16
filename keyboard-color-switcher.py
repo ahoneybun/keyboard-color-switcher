@@ -120,7 +120,6 @@ class MainWindow(Gtk.Window):
                     f_center.write(color_string)
 
                 config.read('colors.ini')
-                config.add_section('simple')
                 config.set('simple', 'center', 'colorcenter')
 
                 with open('colors.ini', 'w') as f:
@@ -134,7 +133,6 @@ class MainWindow(Gtk.Window):
                     f_right.write(color_string)
                     
                 config.read('colors.ini')
-                config.add_section('simple')
                 config.set('simple', 'right', 'colorright')
 
                 with open('colors.ini', 'w') as f:
