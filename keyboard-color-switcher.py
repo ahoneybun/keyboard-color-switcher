@@ -3,18 +3,12 @@
 # Imports
 import gi
 import sys
-import io
+import configparser
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 
-from configparser import ConfigParser
-config = ConfigParser()
-
-#with open('colors.ini', 'w') as f:
-#    colorleft = f.read()
-#config = ConfigParser.RawConfigParser()
-#config.readfp(io.BytesIO(colorleft))
+config = configparser.ConfigParser()
 
 class MainWindow(Gtk.Window):
 
@@ -105,12 +99,6 @@ class MainWindow(Gtk.Window):
                 with open('/sys/class/leds/system76::kbd_backlight/color_left', 'w') as f_left:
                     f_left.write(color_string)
 
-                config.read('colors.ini')
-                config.add_section('simple')
-                config.set('simple', 'left', 'colorleft')
-
-                with open('colors.ini', 'w') as f:
-                    config.write(f)
             except:
                 print("Failed to set color")
                 
@@ -119,11 +107,6 @@ class MainWindow(Gtk.Window):
                 with open('/sys/class/leds/system76::kbd_backlight/color_center', 'w') as f_center:
                     f_center.write(color_string)
 
-                config.read('colors.ini')
-                config.set('simple', 'center', 'colorcenter')
-
-                with open('colors.ini', 'w') as f:
-                    config.write(f)
             except:
                 print("Failed to set color")
 
@@ -131,12 +114,6 @@ class MainWindow(Gtk.Window):
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_right', 'w') as f_right:
                     f_right.write(color_string)
-                    
-                config.read('colors.ini')
-                config.set('simple', 'right', 'colorright')
-
-                with open('colors.ini', 'w') as f:
-                    config.write(f)
 
             except:
                 print("Failed to set color")
