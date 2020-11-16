@@ -3,12 +3,12 @@
 # Imports
 import gi
 import sys
-import configparser
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 
-config = configparser.ConfigParser()
+from configparser import ConfigParser
+config = ConfigParser()
 
 class MainWindow(Gtk.Window):
 
@@ -43,6 +43,11 @@ class MainWindow(Gtk.Window):
         self.leftbutton.set_halign(Gtk.Align.CENTER)
         self.leftbutton.set_valign(Gtk.Align.CENTER)
         self.leftbutton.set_size_request(75, 50)
+
+        config.read('colors.ini')
+        print(config.get('main', 'left'))
+        print(config.get('main', 'center'))
+        print(config.get('main', 'right'))
 
         self.centerbutton = Gtk.ColorButton()
         self.centerlabel = Gtk.Label.new("Center")
@@ -98,6 +103,12 @@ class MainWindow(Gtk.Window):
             try:
                 with open('/sys/class/leds/system76::kbd_backlight/color_left', 'w') as f_left:
                     f_left.write(color_string)
+
+                config.read('colors.ini')
+                config.set('main', 'left', 'f_left')
+
+                with open('colors.ini', 'w') as f:
+                    config.write(f)
 
             except:
                 print("Failed to set color")
