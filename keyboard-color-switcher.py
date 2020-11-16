@@ -105,7 +105,7 @@ class MainWindow(Gtk.Window):
                     f_left.write(color_string)
 
                 config.read('colors.ini')
-                config.set('main', 'left', 'f_left')
+                config.set('main', 'left', 'color_string')
 
                 with open('colors.ini', 'w') as f:
                     config.write(f)
