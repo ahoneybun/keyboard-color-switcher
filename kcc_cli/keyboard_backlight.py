@@ -4,33 +4,24 @@ from typing import Dict
 
 from kcc_cli.common import read_file, write_file
 from kcc_cli.enums import Position, Mode
+from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, THREE_BACKLIGHT_PATH
 
 
 def get_laptop_model() -> str:
-    return subprocess.check_output(['sudo', 'dmidecode', '-s', 'system-product-name']).decode('utf-8').strip()
+    return subprocess.check_output(['sudo', 'dmidecode', '-s', 'system-version']).decode('utf-8').strip()
 
 
 class KeyboardBacklight:
-    MODEL_BACKLIGHT_PATH_MAPPING = {
-        'Oryx Pro': {
-            'brightness_path': '/sys/class/leds/system76_acpi::kbd_backlight/brightness',
-            'brightness_color': {
-                Position.CENTER: '/sys/class/leds/system76_acpi::kbd_backlight/color',
-            },
-        },
-        'Serval WS': {
-            'brightness_path': '/sys/class/leds/system76::kbd_backlight/brightness',
-            'brightness_color': {
-                Position.LEFT: '/sys/class/leds/system76::kbd_backlight/color_left',
-                Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color',
-                Position.RIGHT: '/sys/class/leds/system76::kbd_backlight/color_right',
-            }
-        },
+    MODEL_NUMBER_BACKLIGHT_MAPPING = {
+        'oryp6': ONE_BACKLIGHT_PATH,
+        'oryp4': THREE_BACKLIGHT_PATH,
+        'serw11': THREE_BACKLIGHT_PATH,
+        # More to come
     }
 
     def __init__(self):
         self.laptop_model = get_laptop_model()
-        keyboard_backlight_paths = self.MODEL_BACKLIGHT_PATH_MAPPING.get(
+        keyboard_backlight_paths = self.MODEL_NUMBER_BACKLIGHT_MAPPING.get(
             self.laptop_model,
         )
 
