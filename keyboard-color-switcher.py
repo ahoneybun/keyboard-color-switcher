@@ -89,11 +89,14 @@ class MainWindow(Gtk.Window):
         return button, label_component
 
     def on_color_activated(self, widget, region):
+        """
+        Color Grab in the interface
+        """
         print(region)
         color = widget.get_rgba()
-        red = "{0:0{1}X}".format(int(color.red*255),2)
-        green = "{0:0{1}X}".format(int(color.green*255),2)
-        blue = "{0:0{1}X}".format(int(color.blue*255),2)
+        red = "{0:0{1}X}".format(int(color.red*255), 2)
+        green = "{0:0{1}X}".format(int(color.green*255), 2)
+        blue = "{0:0{1}X}".format(int(color.blue*255), 2)
         color_string = red + green + blue
         print(color_string)
 
@@ -102,6 +105,7 @@ class MainWindow(Gtk.Window):
 
     def on_button_clicked(self, widget):
         win.show_all()
+
 
 win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
