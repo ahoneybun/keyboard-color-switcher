@@ -17,7 +17,15 @@ gi.require_version('Gtk', '3.0')
 
 class MainWindow(Gtk.Window):
 
+    REGION_TO_COLOR_MAPPING = {
+        'left': Position.LEFT,
+        'center': Position.CENTER,
+        'right': Position.RIGHT,
+    }
+
     def __init__(self):
+        self.keyboard_backlight = KeyboardBacklight()
+
         Gtk.Window.__init__(self)
         self.set_border_width(100)
 
@@ -115,26 +123,8 @@ class MainWindow(Gtk.Window):
         color_string = red + green + blue
         print(color_string)
 
-        if region == "left":
-            try:
-                with open(self.ledPath + '/color_left', 'w') as f_left:
-                    f_left.write(color_string)
-            except:
-                print("Failed to set color")
-
-        if region == "center":
-            try:
-                with open(self.ledPath + self.colorCenter, 'w') as f_center:
-                    f_center.write(color_string)
-            except:
-                print("Failed to set color")
-
-        if region == "right":
-            try:
-                with open(self.ledPath + '/color_right', 'w') as f_right:
-                    f_right.write(color_string)
-            except:
-                print("Failed to set color")
+        position = self.REGION_TO_COLOR_MAPPING[region]
+        self.keyboard_backlight.set_color(color_string, position)
 
     def on_button_clicked(self, widget):
         win.show_all()
