@@ -5,10 +5,9 @@ Supported models:
 |:----------:|:----------:|:--------:|
 | darp5      | oryp2-ess  | serw11   |
 | darp6      | oryp4      | serw12   |
-|            | oryp5      |
-|            | oryp6
+|            | oryp5      |          |
+|            | oryp6      |          |
 
-[oryp2-ess, oryp4, oryp5, oryp6] : [serw11, serw12] : [darp5, darp6]
 Credits: David Jordan, Cassidy James Blaede, Aaron Honeycutt, Nathanael Anderson
 License: GPLv3
 
