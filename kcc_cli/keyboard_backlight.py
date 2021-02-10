@@ -85,6 +85,5 @@ class KeyboardBacklight:
     def update_color(self, color):
         write_file(path=self.brightness_color, value=color)
 
-    def _set_full_brightness(self):
-        write_file(path=self.brightness_path,
-                   value=str(self.brightness_max_value))
+    def is_multi_region_color(self):
+        return len(self.brightness_color_paths) > 1
