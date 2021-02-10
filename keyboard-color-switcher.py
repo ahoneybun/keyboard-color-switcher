@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-
-# Imports
 import os
-import gi
 import sys
+from typing import Tuple
+
+import gi
+from gi.repository import Gtk, Gio
+
+from kcc_cli.keyboard_backlight import KeyboardBacklight
+from kcc_cli.enums import Position
 
 if os.geteuid() != 0:
     exit("You need to have root privileges to run this.")
 
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gio
+
 
 class MainWindow(Gtk.Window):
 
