@@ -1,5 +1,6 @@
-System76 Keyboard Switcher
-Supported models: 
+# System76 Keyboard Switcher
+
+## Supported models: 
 
 | Intel      | NVIDIA     | NVIDIA   |
 |:----------:|:----------:|:--------:|
@@ -8,16 +9,16 @@ Supported models:
 |            | oryp5      |          |
 |            | oryp6      |          |
 
-Credits: David Jordan, Cassidy James Blaede, Aaron Honeycutt, Nathanael Anderson
-License: GPLv3
+## Credits: David Jordan, Cassidy James Blaede, Aaron Honeycutt, Nathanael Anderson
+## License: GPLv3
 
-Wishlist:
+### Wishlist:
 
 [ ] Save color settings when closing and opening.
 [ ] Presets of all 3 regions.
 [ ] Breathing effect
 [ ] Color Cycling
 
-How to use it:
+## How to use it:
 
 sudo python3 keyboard-color-switcher.py
