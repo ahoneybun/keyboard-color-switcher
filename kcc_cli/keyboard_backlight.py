@@ -4,7 +4,7 @@ from typing import Dict
 
 from kcc_cli.common import read_file, write_file
 from kcc_cli.enums import Position, Mode
-from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, THREE_BACKLIGHT_PATH
+from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, FOUR_BACKLIGHT_PATH
 
 
 def get_laptop_model() -> str:
@@ -14,8 +14,8 @@ def get_laptop_model() -> str:
 class KeyboardBacklight:
     MODEL_NUMBER_BACKLIGHT_MAPPING = {
         'oryp6': ONE_BACKLIGHT_PATH,
-        'oryp4': THREE_BACKLIGHT_PATH,
-        'serw11': THREE_BACKLIGHT_PATH,
+        'oryp4': FOUR_BACKLIGHT_PATH,
+        'serw11': FOUR_BACKLIGHT_PATH,
         # More to come
     }
 

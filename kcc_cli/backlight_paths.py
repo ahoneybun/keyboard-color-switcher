@@ -9,11 +9,12 @@ ONE_BACKLIGHT_PATH = {
 }
 
 
-THREE_BACKLIGHT_PATH = {
+FOUR_BACKLIGHT_PATH = {
     'brightness_path': '/sys/class/leds/system76::kbd_backlight/brightness',
     'brightness_color': {
         Position.LEFT: '/sys/class/leds/system76::kbd_backlight/color_left',
-        Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color',
+        Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color_center',
         Position.RIGHT: '/sys/class/leds/system76::kbd_backlight/color_right',
+        Position.EXTRA: '/sys/class/leds/system76::kbd_backlight/color_extra',
     }
 }
