@@ -2,15 +2,20 @@
 
 ## Supported models: 
 
-| Intel      | NVIDIA     | NVIDIA   |
-|:----------:|:----------:|:--------:|
-| darp5      | oryp2-ess  | serw11   |
-| darp6      | oryp4      | serw12   |
-|            | oryp5      |          |
-|            | oryp6      |          |
+Oryx Pro  | Darter Pro | Serval WS 
+----------| -----------| ----------
+oryp2-ess | darp5      | serw11
+oryp4     | darp6      | serw12
+oryp5     |            |
+oryp6     |            |
 
-## Credits: David Jordan, Cassidy James Blaede, Aaron Honeycutt, Nathanael Anderson, Jeff Labonte
-## License: GPLv3
+Credits 
+--------
+David Jordan
+Cassidy James Blaede
+Aaron Honeycutt
+Nathanel Anderson
+Jeff Labonte
 
 ### Wishlist:
 
