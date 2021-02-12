@@ -8,7 +8,7 @@ from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, FOUR_BACKLIGHT_PATH
 
 
 def get_laptop_model() -> str:
-    return subprocess.check_output(['sudo', 'dmidecode', '-s', 'system-version']).decode('utf-8').strip()
+    return subprocess.check_output(['pkexec', 'dmidecode', '-s', 'system-version']).decode('utf-8').strip()
 
 
 class KeyboardBacklight:
