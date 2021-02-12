@@ -16,6 +16,7 @@ class KeyboardBacklight:
         'oryp6': ONE_BACKLIGHT_PATH,
         'oryp4': FOUR_BACKLIGHT_PATH,
         'serw11': FOUR_BACKLIGHT_PATH,
+	'serw12': FOUR_BACKLIGHT_PATH,
         # More to come
     }
 
