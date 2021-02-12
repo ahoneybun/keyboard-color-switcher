@@ -4,6 +4,7 @@ import sys
 from typing import Tuple
 
 import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 
 from kcc_cli.keyboard_backlight import KeyboardBacklight
