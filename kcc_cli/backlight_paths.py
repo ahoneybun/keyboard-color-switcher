@@ -1,10 +1,5 @@
 from kcc_cli.enums import Position
 
-SINGLE_BACKLIGHT_PATH = {
-    'brightness_path': '/sys/class/leds/system76::kbd_backlight/brightness',
-    'brightness_color': {
-        Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color_left'
-    }
 
 ONE_BACKLIGHT_PATH = {
     'brightness_path': '/sys/class/leds/system76_acpi::kbd_backlight/brightness',
@@ -21,5 +16,12 @@ FOUR_BACKLIGHT_PATH = {
         Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color_center',
         Position.RIGHT: '/sys/class/leds/system76::kbd_backlight/color_right',
         Position.EXTRA: '/sys/class/leds/system76::kbd_backlight/color_extra',
+    }
+}
+
+SINGLE_BACKLIGHT_PATH = {
+    'brightness_path': '/sys/class/leds/system76::kbd_backlight/brightness',
+    'brightness_color': {
+        Position.CENTER: '/sys/class/leds/system76::kbd_backlight/color_left'
     }
 }
