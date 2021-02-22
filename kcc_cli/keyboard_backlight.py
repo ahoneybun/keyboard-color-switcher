@@ -13,7 +13,7 @@ def get_laptop_model() -> str:
 
 class KeyboardBacklight:
     MODEL_NUMBER_BACKLIGHT_MAPPING = {
-        'oryp6': ONE_BACKLIGHT_PATH,
+        'oryp6': ONE_ACPI_BACKLIGHT_PATH,
         'oryp4': FOUR_BACKLIGHT_PATH,
         'darp5': ONE_BACKLIGHT_PATH,
         'serw11': FOUR_BACKLIGHT_PATH,
