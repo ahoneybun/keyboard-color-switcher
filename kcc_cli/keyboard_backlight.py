@@ -4,7 +4,7 @@ from typing import Dict
 
 from kcc_cli.common import read_file, write_file
 from kcc_cli.enums import Position, Mode
-from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, FOUR_BACKLIGHT_PATH
+from kcc_cli.backlight_paths import ONE_BACKLIGHT_PATH, FOUR_BACKLIGHT_PATH, ONE_ACPI_BACKLIGHT_PATH
 
 
 def get_laptop_model() -> str:
