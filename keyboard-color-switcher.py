@@ -45,37 +45,43 @@ class StackWindow(Gtk.Window):
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.add(vbox)
 
-        # Label Definement
-        self.aboutlabel = Gtk.Label()
-        self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
-        self.aboutcenterlabel = Gtk.Label()
-#       self.centerlabel.set_halign()
+        stack = Gtk.Stack()
+        stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+        slack.set_transition_duration(1000)
 
-        self.grid = Gtk.Grid()
-        self.grid.set_column_spacing(6)
-        self.grid.set_halign(Gtk.Align.CENTER)
-        self.grid.set_valign(Gtk.Align.CENTER)
+        stack.add_titled(Static)
 
-        self.is_multi_color = self.keyboard_backlight.is_multi_region_color()
+#         # Label Definement
+#         self.aboutlabel = Gtk.Label()
+#         self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
+#         self.aboutcenterlabel = Gtk.Label()
+# #       self.centerlabel.set_halign()
 
-        if self.is_multi_color:
-            self.left_button, self.left_label = self._create_control_button("Left")
-            self.right_button, self.right_label = self._create_control_button("Right")
+#         self.grid = Gtk.Grid()
+#         self.grid.set_column_spacing(6)
+#         self.grid.set_halign(Gtk.Align.CENTER)
+#         self.grid.set_valign(Gtk.Align.CENTER)
 
-            self.grid.attach(self.left_label, 0, 2, 1, 1)
-            self.grid.attach(self.left_button, 0, 1, 1, 1)
+#         self.is_multi_color = self.keyboard_backlight.is_multi_region_color()
 
-            self.grid.attach(self.right_label, 2, 2, 1, 1)
-            self.grid.attach(self.right_button, 2, 1, 1, 1)
+#         if self.is_multi_color:
+#             self.left_button, self.left_label = self._create_control_button("Left")
+#             self.right_button, self.right_label = self._create_control_button("Right")
 
-        self.center_button, self.center_label = self._create_control_button("Center")
+#             self.grid.attach(self.left_label, 0, 2, 1, 1)
+#             self.grid.attach(self.left_button, 0, 1, 1, 1)
 
-        self.grid.attach(self.center_label, 1, 2, 1, 1)
-        self.grid.attach(self.center_button, 1, 1, 1, 1)
+#             self.grid.attach(self.right_label, 2, 2, 1, 1)
+#             self.grid.attach(self.right_button, 2, 1, 1, 1)
 
-        vbox.pack_start(self.aboutlabel, True, True, 0)
-        vbox.pack_start(self.aboutcenterlabel, True, True, 0)
-        vbox.pack_start(self.grid, True, True, 0)
+#         self.center_button, self.center_label = self._create_control_button("Center")
+
+#         self.grid.attach(self.center_label, 1, 2, 1, 1)
+#         self.grid.attach(self.center_button, 1, 1, 1, 1)
+
+#         vbox.pack_start(self.aboutlabel, True, True, 0)
+#         vbox.pack_start(self.aboutcenterlabel, True, True, 0)
+#         vbox.pack_start(self.grid, True, True, 0)
 
     def _create_control_button(self, label: str, alignment: Gtk.Align = Gtk.Align.CENTER) -> Tuple[Gtk.ColorButton, Gtk.Label]:
         button = Gtk.ColorButton()
