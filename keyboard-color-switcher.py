@@ -53,7 +53,7 @@ class MainWindow(Gtk.Window):
         self.page1.add(Gtk.Label("GTK tool for changing keyboard region colors"))
 
     if self.is_multi_color:
-        self.page1.add(self.left_button, self.left_label = self._create_control_button("Left"))
+        self.page1.add(self.left_button, == self.left_label = self._create_control_button("Left"))
         self.page1.add(self.right_button, self.right_label = self._create_control_button("Right"))
 
         self.notebook.append_page(self.page1, Gtk.Label("Static Colors"))
