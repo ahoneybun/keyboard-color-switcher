@@ -47,7 +47,7 @@ class StackWindow(Gtk.Window):
 
         stack = Gtk.Stack()
         stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
-        slack.set_transition_duration(1000)
+        stack.set_transition_duration(1000)
 
         stack.add_titled(Static)
 
