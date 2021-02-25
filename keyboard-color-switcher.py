@@ -16,7 +16,7 @@ if os.geteuid() != 0:
 gi.require_version('Gtk', '3.0')
 
 
-class StackWindow(Gtk.Window):
+class MainWindow(Gtk.Window):
 
     REGION_TO_COLOR_MAPPING = {
         'left': Position.LEFT,
@@ -30,6 +30,9 @@ class StackWindow(Gtk.Window):
         Gtk.Window.__init__(self)
         self.set_border_width(100)
 
+        self.notebook = Gtk.Notebook()
+        self.add(self.notebook)
+
         # HeaderBar Define
         self.headerbar = Gtk.HeaderBar()
         self.set_titlebar(self.headerbar)
@@ -42,14 +45,13 @@ class StackWindow(Gtk.Window):
         self.aboutbutton.add(image)
         self.headerbar.pack_end(self.aboutbutton)
 
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
-        self.add(vbox)
+        # vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        # self.add(vbox)
 
-        stack = Gtk.Stack()
-        stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
-        stack.set_transition_duration(1000)
-
-        stack.add_titled(Static)
+        self.page1 = Gtk.Box()
+        self.page1.set_border_width(50)
+        self.page1.add(Gtk.Label("GTK tool for changing keyboard region colors"))
+        self.notebook.append_page(self.page1, Gtk.Label("Static Colors"))
 
 #         # Label Definement
 #         self.aboutlabel = Gtk.Label()
@@ -113,8 +115,7 @@ class StackWindow(Gtk.Window):
     def on_button_clicked(self, widget):
         win.show_all()
 
-
-win = StackWindow()
+win = MainWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
