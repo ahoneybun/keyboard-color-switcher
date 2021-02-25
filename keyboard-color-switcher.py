@@ -16,7 +16,7 @@ if os.geteuid() != 0:
 gi.require_version('Gtk', '3.0')
 
 
-class MainWindow(Gtk.Window):
+class StackWindow(Gtk.Window):
 
     REGION_TO_COLOR_MAPPING = {
         'left': Position.LEFT,
@@ -108,7 +108,7 @@ class MainWindow(Gtk.Window):
         win.show_all()
 
 
-win = MainWindow()
+win = StackWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
