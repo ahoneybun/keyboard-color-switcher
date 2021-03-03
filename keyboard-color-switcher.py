@@ -79,7 +79,9 @@ class MainWindow(Gtk.Window):
         vbox.pack_start(self.aboutcenterlabel, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
-    def _create_control_button(self, label: str, alignment: Gtk.Align = Gtk.Align.CENTER) -> Tuple[Gtk.ColorButton, Gtk.Label]:
+    def _create_control_button(
+        self, label: str, alignment: Gtk.Align = Gtk.Align.CENTER
+    ) -> Tuple[Gtk.ColorButton, Gtk.Label]:
         button = Gtk.ColorButton()
         label_component = Gtk.Label.new(label)
         button.set_halign(alignment)
@@ -97,9 +99,9 @@ class MainWindow(Gtk.Window):
         """
         print(region)
         color = widget.get_rgba()
-        red = "{0:0{1}X}".format(int(color.red*255), 2)
-        green = "{0:0{1}X}".format(int(color.green*255), 2)
-        blue = "{0:0{1}X}".format(int(color.blue*255), 2)
+        red = "{0:0{1}X}".format(int(color.red * 255), 2)
+        green = "{0:0{1}X}".format(int(color.green * 255), 2)
+        blue = "{0:0{1}X}".format(int(color.blue * 255), 2)
         color_string = red + green + blue
         print(color_string)
 
