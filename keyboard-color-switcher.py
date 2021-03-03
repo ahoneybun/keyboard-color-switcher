@@ -6,21 +6,24 @@ from typing import Tuple
 import gi
 from gi.repository import Gtk, Gio
 
-from kcc_cli.keyboard_backlight import KeyboardBacklight
-from kcc_cli.enums import Position
+current_path = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, f"{current_path}/system76_backlight_manager/")
+
+from system76_backlight_manager.keyboard_backlight import KeyboardBacklight
+from system76_backlight_manager.enums import Position
 
 if os.geteuid() != 0:
     exit("You need to have root privileges to run this.")
 
-gi.require_version('Gtk', '3.0')
+gi.require_version("Gtk", "3.0")
 
 
 class MainWindow(Gtk.Window):
 
     REGION_TO_COLOR_MAPPING = {
-        'left': Position.LEFT,
-        'center': Position.CENTER,
-        'right': Position.RIGHT,
+        "left": Position.LEFT,
+        "center": Position.CENTER,
+        "right": Position.RIGHT,
     }
 
     def __init__(self):
