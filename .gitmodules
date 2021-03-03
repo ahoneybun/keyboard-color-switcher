@@ -1,3 +1,3 @@
-[submodule "s76-backlight-manager"]
-	path = s76-backlight-manager
+[submodule "lib/backend"]
+	path = lib/backend
 	url = git@github.com:JeffLabonte/System76-Backlight-Manager-cli.git
