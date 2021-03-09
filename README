@@ -1,16 +1,33 @@
-System76 Keyboard Chooser
-Supported models: [oryp2-ess, oryp4, oryp5] : [serw11] : [darp5, darp6]
-Credits: David Jordan, Cassidy James Blaede, Aaron Honeycutt
-License: GPLv3
+# System76 Keyboard Switcher
 
-Wishlist:
+## Supported models: 
+
+|  Oryx Pro | Darter Pro |  Serval WS |
+| --------- | ---------- | ---------- |
+|           |            | serw11     |
+| oryp4     |            | serw12     |
+|           |            |            |
+| oryp6     |            |            |
+
+Main Developers
+----------------
+Aaron Honeycutt
+Jeff Labonte
+
+Credits 
+--------
+David Jordan
+Cassidy James Blaede
+Nathanel Anderson
+
+### Wishlist:
 
 [ ] Save color settings when closing and opening.
 [ ] Presets of all 3 regions.
 [ ] Breathing effect
 [ ] Color Cycling
 
-How to use it:
+## How to use it:
 
 ``` shell
 git clone --recursive-submodules git@github.com:/keyboard-color-chooser.git
