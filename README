@@ -12,4 +12,12 @@ Wishlist:
 
 How to use it:
 
+``` shell
+git clone --recursive-submodules git@github.com:/keyboard-color-chooser.git
+```
+
+```python
 sudo python3 keyboard-color-switcher.py
+
+```
+
