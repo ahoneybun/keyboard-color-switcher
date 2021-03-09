@@ -8,3 +8,6 @@ venv:
 
 install-dev: venv
 	pip install -r requirements.dev.txt
+
+install_hook:
+	pre-commit install

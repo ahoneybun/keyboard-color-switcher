@@ -4,24 +4,28 @@ import sys
 from typing import Tuple
 
 import gi
-gi.require_version('Gtk', '3.0')
+
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gio
 
-from kcc_cli.keyboard_backlight import KeyboardBacklight
-from kcc_cli.enums import Position
+current_path = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, f"{current_path}/system76_backlight_manager/")
+
+from system76_backlight_manager.keyboard_backlight import KeyboardBacklight
+from system76_backlight_manager.enums import Position
 
 if os.geteuid() != 0:
     exit("You need to have root privileges to run this.")
 
-gi.require_version('Gtk', '3.0')
+gi.require_version("Gtk", "3.0")
 
 
 class MainWindow(Gtk.Window):
 
     REGION_TO_COLOR_MAPPING = {
-        'left': Position.LEFT,
-        'center': Position.CENTER,
-        'right': Position.RIGHT,
+        "left": Position.LEFT,
+        "center": Position.CENTER,
+        "right": Position.RIGHT,
     }
 
     def __init__(self):
@@ -49,7 +53,6 @@ class MainWindow(Gtk.Window):
         self.aboutlabel = Gtk.Label()
         self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
         self.aboutcenterlabel = Gtk.Label()
-#       self.centerlabel.set_halign()
 
         self.grid = Gtk.Grid()
         self.grid.set_column_spacing(6)
@@ -77,7 +80,9 @@ class MainWindow(Gtk.Window):
         vbox.pack_start(self.aboutcenterlabel, True, True, 0)
         vbox.pack_start(self.grid, True, True, 0)
 
-    def _create_control_button(self, label: str, alignment: Gtk.Align = Gtk.Align.CENTER) -> Tuple[Gtk.ColorButton, Gtk.Label]:
+    def _create_control_button(
+        self, label: str, alignment: Gtk.Align = Gtk.Align.CENTER
+    ) -> Tuple[Gtk.ColorButton, Gtk.Label]:
         button = Gtk.ColorButton()
         label_component = Gtk.Label.new(label)
         button.set_halign(alignment)
@@ -95,9 +100,9 @@ class MainWindow(Gtk.Window):
         """
         print(region)
         color = widget.get_rgba()
-        red = "{0:0{1}X}".format(int(color.red*255), 2)
-        green = "{0:0{1}X}".format(int(color.green*255), 2)
-        blue = "{0:0{1}X}".format(int(color.blue*255), 2)
+        red = "{0:0{1}X}".format(int(color.red * 255), 2)
+        green = "{0:0{1}X}".format(int(color.green * 255), 2)
+        blue = "{0:0{1}X}".format(int(color.blue * 255), 2)
         color_string = red + green + blue
         print(color_string)
 

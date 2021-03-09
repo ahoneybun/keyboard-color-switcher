@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
 import gi
-gi.require_version('Gtk', '3.0')
+
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-class Stack(Gtk.Box):
 
+class Stack(Gtk.Box):
     def __init__(self, parent):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.parent = parent
@@ -15,6 +16,5 @@ class Stack(Gtk.Box):
         self.stack.set_transition_duration(300)
 
         ### Add Labels
-
 
         self.pack_start(self.stack, True, True, 0)

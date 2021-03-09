@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''
+"""
    Copyright 2018 Aaron Honeycutt (honeycuttaaron3@gmail.com)
    This file is part of KCC.
     KCC is free software: you can redistribute it and/or modify
@@ -12,16 +12,17 @@
     GNU General Public License for more details.
     You should have received a copy of the GNU General Public License
     along with KCC.  If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 import gi
-gi.require_version('Gtk', '3.0')
+
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GLib
 from .headerbar import Headerbar
 from .stack import Stack
 
-class Window(Gtk.Window):
 
+class Window(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self)
 
@@ -36,9 +37,8 @@ class Window(Gtk.Window):
         self.screen = Gdk.Screen.get_default()
         self.css_provider = Gtk.CssProvider()
         try:
-            self.css_provider.load_from_path('data/style.css')
+            self.css_provider.load_from_path("data/style.css")
         except GLib.Error:
-            self.css_provider.load_from_path('/usr/share/repoman/style.css')
+            self.css_provider.load_from_path("/usr/share/repoman/style.css")
         self.context = Gtk.StyleContext()
-        self.context.add_provider_for_screen(self.screen, self.css_provider,
-          Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        self.context.add_provider_for_screen(self.screen, self.css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
