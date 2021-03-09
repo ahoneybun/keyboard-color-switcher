@@ -51,7 +51,6 @@ class MainWindow(Gtk.Window):
         self.aboutlabel = Gtk.Label()
         self.aboutlabel.set_text("GTK tool for changing keyboard region colors")
         self.aboutcenterlabel = Gtk.Label()
-#       self.centerlabel.set_halign()
 
         self.grid = Gtk.Grid()
         self.grid.set_column_spacing(6)
