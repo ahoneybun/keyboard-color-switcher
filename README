@@ -1,13 +1,8 @@
 # System76 Keyboard Switcher
 
-## Supported models: 
+## Supported models
 
-|  Oryx Pro | Darter Pro |  Serval WS |
-| --------- | ---------- | ---------- |
-|           |            | serw11     |
-| oryp4     |            | serw12     |
-|           |            |            |
-| oryp6     |            |            |
+Refer to this project for supported models : https://github.com/JeffLabonte/System76-Backlight-Manager-cli
 
 Main Developers
 ----------------
