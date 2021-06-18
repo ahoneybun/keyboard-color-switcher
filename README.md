@@ -6,14 +6,14 @@ Refer to this project for supported models : https://github.com/JeffLabonte/Syst
 
 Main Developers
 ----------------
-Aaron Honeycutt
-Jeff Labonte
+- Aaron Honeycutt
+- Jeff Labonte
 
 Credits 
 --------
-David Jordan
-Cassidy James Blaede
-Nathanel Anderson
+- David Jordan
+- Cassidy James Blaede
+- Nathanel Anderson
 
 ### Wishlist:
 
