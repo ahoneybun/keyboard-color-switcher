@@ -17,8 +17,8 @@ Credits
 
 ### Wishlist:
 
-- [ ] Save color settings when closing and opening.
-- [ ] Presets of all 3 regions.
+- [ ] Save color settings when closing and opening
+- [ ] Presets of all 3 regions (on devices that support it)
 - [ ] Breathing effect
 - [ ] Color Cycling
 
