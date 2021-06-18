@@ -17,15 +17,15 @@ Nathanel Anderson
 
 ### Wishlist:
 
-[ ] Save color settings when closing and opening.
-[ ] Presets of all 3 regions.
-[ ] Breathing effect
-[ ] Color Cycling
+- [ ] Save color settings when closing and opening.
+- [ ] Presets of all 3 regions.
+- [ ] Breathing effect
+- [ ] Color Cycling
 
 ## How to use it:
 
 ``` shell
-git clone --recursive-submodules git@github.com:/keyboard-color-chooser.git
+git clone --recurse-submodules https://github.com/ahoneybun/keyboard-color-switcher.git
 ```
 
 ```python
