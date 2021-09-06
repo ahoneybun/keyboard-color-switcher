@@ -1,0 +1,5 @@
+keyboard-color-switcher (1.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Aaron Honeycutt <aaronh@unknown>  Mon, 06 Sep 2021 15:52:22 -0600

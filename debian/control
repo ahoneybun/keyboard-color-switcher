@@ -1,0 +1,29 @@
+Source: keyboard-color-switcher
+Section: unknown
+Priority: optional
+Maintainer: Aaron Honeycutt <aaronhoneycutt@pm.me>
+Build-Depends: debhelper-compat (= 13), dh-python, python3-setuptools, python3-all
+Standards-Version: 4.5.1
+Homepage: <github.com/ahoneycun/keyboard-color-switcher>
+#Vcs-Browser: https://salsa.debian.org/debian/keyboard-color-switcher
+#Vcs-Git: https://salsa.debian.org/debian/keyboard-color-switcher.git
+#Testsuite: autopkgtest-pkg-python
+Rules-Requires-Root: no
+
+Package: python3-keyboard-color-switcher
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}
+Suggests: python-keyboard-color-switcher-doc
+Description: <insert up to 60 chars description> (Python 3)
+ <insert long description, indented with spaces>
+ .
+ This package installs the library for Python 3.
+
+Package: python-keyboard-color-switcher-doc
+Architecture: all
+Section: doc
+Depends: ${sphinxdoc:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description> (common documentation)
+ <insert long description, indented with spaces>
+ .
+ This is the common documentation package.
